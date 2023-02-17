@@ -1,7 +1,7 @@
 const About = () =>{
     return(
         <div>
-            <h1>Pingo largo</h1>
+            <h1>Aca iría una descripción del trabajo integrador</h1>
         </div>
     )
 }
