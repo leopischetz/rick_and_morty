@@ -7,17 +7,29 @@ import { useSelector, useDispatch } from "react-redux";
 const DivCard = styled.div`
 display: flex;
 flex-direction: column-reverse;
+width: 250px;
 background-color: rgba(255, 255, 255, 0.85);
 border:3px solid black;
 border-radius: 5%;
 color: rgb(0, 200, 80);
 font-family: "Comic Neue";
 `
+const DivFav = styled.div`
+display:flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin-top: 0px;
+`
+
 const DivName = styled.div`
 display:flex;
 align-items: center;
+justify-content: center;
 justify-content: space-between;
-margin-left: 2%;
+margin-left: 5%;
+margin-bottom: auto;
+font-size: 80%;
 `
 const DivDatos = styled.div`
 display:flex;
@@ -50,7 +62,6 @@ export default function Card({name, species, gender, image, onClose, id}) {
       }
    }
 
-    
    React.useEffect(() => {
       myFavorites.forEach((fav) => {
         if (fav.id === id) {
@@ -61,11 +72,13 @@ export default function Card({name, species, gender, image, onClose, id}) {
    
    return (
       <DivCard>
+         <DivFav>
          {isFav ? (
             <button onClick={handleFavorite}>❤️</button>
           ) : (
             <button onClick={handleFavorite}>🤍</button>
           )}
+         </DivFav>
 
          <DivDatos>
          <h2>{species}</h2>

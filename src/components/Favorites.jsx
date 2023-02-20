@@ -3,6 +3,16 @@ import Card from "./Card";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { filterCards, orderCards } from "../redux/actions";
+import styled from "styled-components";
+
+
+const DivFavs = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+margin: 5%;
+`
+
 
 export default function Favorites(){
     const myFavorites = useSelector((state) => state.myFavorites);
@@ -26,8 +36,8 @@ export default function Favorites(){
                <option value="Unknown">Unknown</option>
             </select>
             </div>
-            <button onClick={handleClick}>Back to Home</button>
-            <div style={ {display: "flex"}}>
+            
+            <DivFavs>
             {myFavorites.map((elem) => (
                  <Card
                     name={elem.name}
@@ -38,7 +48,8 @@ export default function Favorites(){
                     onClose={() => alert("Para eliminar de favoritos, toca el corazon")}
                      />
                    ))}
-            </div>
+            </DivFavs>
+            <button onClick={handleClick}>Back to Home</button>
         </div>
     )
 }

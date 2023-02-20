@@ -3,7 +3,9 @@ import styled from "styled-components";
 
 const DivCards = styled.div`
 display: flex;
+flex-wrap: wrap;
 justify-content: space-around;
+margin: 5%;
 `
 
 export default function Cards({characters, onClose}) {   
