@@ -26,11 +26,12 @@ width: 50%;
 justify-content: center;
 `
 const Boton = styled.button`
-width: 50%;
+width: 25%;
 color: rgb(0, 200, 80);
 font-family: "Comic Neue";
 font-size: 2vw;
 margin: auto;
+border-radius: 5%;
 `
 const Label = styled.label`
 margin-bottom: 5%;

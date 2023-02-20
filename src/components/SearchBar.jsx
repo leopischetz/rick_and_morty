@@ -1,5 +1,17 @@
 import { useState } from "react";
 import { useLocation } from 'react-router-dom';
+import styled from "styled-components";
+
+const DivSearch = styled.div`
+display: flex;`
+
+const Boton = styled.button`
+width: 30%;
+color: rgb(0, 200, 80);
+font-family: "Comic Neue";
+font-size: 1.2vw;
+border-radius: 5%;
+`
 
 export default function SearchBar({onSearch}) {
 
@@ -10,9 +22,9 @@ export default function SearchBar({onSearch}) {
    }
    
    return (  
-      <div>
+      <DivSearch>
       <input type='search' value={character} onChange={handleChange} />
-      <button onClick={() => onSearch(character)}>Agregar</button>
-      </div>
+      <Boton onClick={() => onSearch(character)}>Agregar</Boton>
+      </DivSearch>
    );
 }
