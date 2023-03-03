@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# HW 06: AsyncAwait | Integración
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **🕒 Duración estimada**
 
-## Available Scripts
+x minutos
 
-In the project directory, you can run:
+<br />
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **💻 Rick & Morty App**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **📝 INTRO**
 
-### `npm test`
+En esta homework vamos a seguir trabajando en nuetra App de Rick & Morty del lado del servidor. En base a las rutas asincrónicas ya creadas, vamos a pasarlas de promesas a AsyncAwait.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Las rutas que tenemos creadas hasta el momento son:
 
-### `npm run build`
+-  GET onSearch
+-  GET Detail
+-  GET favorites
+-  POST favorites
+-  DELETE favorites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **📋 INSTRUCCIONES**
 
-### `npm run eject`
+### **👩‍💻 EJERCICIO 1**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **GET Search**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Dirígete a tu carpeta **`controllers`** y modifica la función **`getCharById`** de modo tal que utilices async/await y no promesas.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Para manejar correctamente el error, envuelve el contenido de esta función en un **try-catch** en el caso de que la promesa falle, envuelve el código dentro del bloque try-catch.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br />
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **👩‍💻 EJERCICIO 2**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **GET Detail**
 
-### Code Splitting
+1. Dirígete a tu carpeta **`controllers`** y modifica la función **`getCharDetail`** de modo tal que utilices async/await y no promesas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Para manejar correctamente el error, envuelve el contenido de esta función en un **try-catch** en el caso de que la promesa falle, envuelve el código dentro del bloque try-catch.
 
-### Analyzing the Bundle Size
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### **👀 COMPROBEMOS...**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Levanta el servidor con el comando:
 
-### Advanced Configuration
+```bash
+    npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Una vez levantado, verifica lo siguiente:
 
-### Deployment
+</br >
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### **FRONTEND**
 
-### `npm run build` fails to minify
+### **ACTIONS**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Haremos un par de cambios en el lado frontend:
+
+1. La action `addFavorites`, ahora debe ser una función asíncrona, promisificada con async/await, manejando errores con try/catch que envíe el personaje favorito al endpoint con el método POST **http://localhost:3001/rickandmorty/fav**.
+
+2. La action `removeFavorites`, ahora debe ser una función asíncrona, promisificada con async/await, manejando errores con try/catch que elimine el personaje favorito con el método DELETE al endpoint **http://localhost:3001/rickandmorty/fav/:id**.
+
+3. Crea una action `getFavorites`, debe ser una función asíncrona, promisificada con async/await, manejando errores con try/catch que solicite el personaje favorito con el método GET al endpoint **http://localhost:3001/rickandmorty/fav**.
+
+4. Levanta también tu aplicación en **http://localhost:3000** para ver tu aplicación Rick & Morty funcionando completamente.
+
+---
+
+</br >
+
+## **🚨 A TENER EN CUENTA**
+
+Si tu servidor no está levantado, o si los links no fueron bien escritos, tu aplicación no funcionará correctamente.
+
+</br >
+
+---
+
+¡Felicitaciones! Ahora tienes una comunicación front-back completa!🥳🥳
