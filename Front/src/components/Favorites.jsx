@@ -30,16 +30,22 @@ export default function Favorites(){
     const handleClick = ()=>{
         navigate("/home");
       }
+    const orderFav = (event) => {
+        dispatch(orderCards(event.target.value));
+      };
+    const filterFav = (event) => {
+        dispatch(filterCards(event.target.value));
+      };
 
     return(
         <div>
             <DivFilter>
-            <select onChange={(e) => dispatch(orderCards(e.target.value))}>
+            <select onChange={orderFav}>
                <option value="none">----</option>
                <option value="Ascendente">Ascendente</option>
                <option value="Descendente">Descendente</option>
             </select>
-            <select onChange={(e) => dispatch(filterCards(e.target.value))}>
+            <select onChange={filterFav}>
                <option value="none">----</option>
                <option value="Male">Male</option>
                <option value="Female">Female</option>
@@ -51,6 +57,7 @@ export default function Favorites(){
             <DivFavs>
             {myFavorites.map((elem) => (
                  <Card
+                    key={elem.id}
                     name={elem.name}
                     species={elem.species}
                     gender={elem.gender}

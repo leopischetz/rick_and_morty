@@ -8,7 +8,7 @@ export function addFavorite(character){
                 "http://localhost:3001/favs/create", character);
             return dispatch({
                 type: ADD_CHARACTER,
-                payload: resp.data
+                payload: resp.data,
             });
         } catch (error) {
             return dispatch({
@@ -59,7 +59,7 @@ export function deleteFavorite(id) {
 export function getFavorites(){
     return async function(dispatch){
         try {
-            const response = await axios("http://localhost:3001/favs/get");
+            const response = await axios.get("http://localhost:3001/favs/get");
             return dispatch({
                 type: "GET_FAVS",
                 payload: response.data,

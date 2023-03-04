@@ -1,4 +1,5 @@
 import Card from './Card';
+import React from 'react';
 import styled from "styled-components";
 
 const DivCards = styled.div`
@@ -8,8 +9,9 @@ justify-content: space-around;
 margin: 5%;
 `
 
-export default function Cards({characters, onClose}) {   
-  
+export default function Cards(props) {   
+
+   const { characters, onClose } = props; 
    const renderizedIds = new Set();
 
    return (

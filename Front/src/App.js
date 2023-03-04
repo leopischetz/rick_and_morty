@@ -57,16 +57,12 @@ function App () {
     }
   };
 
-  const dispatch = useDispatch();
-  const myFavorites = useSelector((state) => state.myFavorites);
+
 
   function onClose(id){
     setCharacters(
       characters.filter((character) => character.id !== id)
     ) 
-    if(myFavorites){      
-      dispatch(deleteFavorite(id));
-    }     
   }
 
   return (

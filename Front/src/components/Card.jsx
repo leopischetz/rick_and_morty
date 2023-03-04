@@ -68,7 +68,7 @@ export default function Card({name, species, gender, image, onClose, id}) {
           setFav(true);
         }
       });
-    }, [myFavorites]);
+    }, [myFavorites, id]);
    
    return (
       <DivCard>

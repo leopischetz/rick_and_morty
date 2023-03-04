@@ -1,4 +1,5 @@
-import { ADD_CHARACTER, DELETE_CHARACTER, FILTER, ORDER } from "./types"
+import { ADD_CHARACTER, 
+  DELETE_CHARACTER, FILTER, ORDER } from "./types"
 
 const initialState = {
     myFavorites: [],
@@ -44,13 +45,13 @@ export default function reducer (state = initialState, { type, payload }) {
                 ...state,
                 myFavorites: [...sorted],
               };
-            case "GET_FAVS":
+          case "GET_FAVS":
               return {
                 ...state,
                 myFavorites: payload,
                 errors: {},
               };
-            case "ERROR":
+          case "ERROR":
               return {
                 ...state,
                 errors: payload,
